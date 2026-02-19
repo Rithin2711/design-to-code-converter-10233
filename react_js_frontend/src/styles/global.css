@@ -1,0 +1,40 @@
+:root {
+  --accent-1: #6d28d9; /* used by header gradient per requirement */
+
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text: #111827;
+  --muted: #6b7280;
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.08);
+  --shadow-md: 0 8px 20px rgba(16, 24, 40, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  overflow: hidden; /* critical: no page scrolling (requirement) */
+}
+
+#root {
+  height: 100%;
+}
+
+/* Accessible focus ring */
+:where(button, input, select, a):focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.85);
+  outline-offset: 3px;
+}
