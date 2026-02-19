@@ -1,4 +1,4 @@
-import React, { useId, useMemo, useState } from "react";
+import React, { useId, useMemo, useRef, useState } from "react";
 import PageHeader from "../ui/PageHeader";
 import "./NewWorkflowPage.css";
 
@@ -9,6 +9,8 @@ import "./NewWorkflowPage.css";
 // PUBLIC_INTERFACE
 export default function NewWorkflowPage() {
   const uploadHelpId = useId();
+  const fileInputRef = useRef(null);
+
   const [environment, setEnvironment] = useState("");
   const [selectedFiles, setSelectedFiles] = useState([]);
 
@@ -25,6 +27,10 @@ export default function NewWorkflowPage() {
   const handleFiles = (fileList) => {
     const files = Array.from(fileList || []);
     setSelectedFiles(files);
+  };
+
+  const openFilePicker = () => {
+    fileInputRef.current?.click();
   };
 
   return (
@@ -51,21 +57,53 @@ export default function NewWorkflowPage() {
                   if (e.dataTransfer?.files?.length) handleFiles(e.dataTransfer.files);
                 }}
               >
-                <div className="nwDropzoneInner">
+                {/* 
+                  Use a focusable, button-like container for accessibility:
+                  - Enter/Space opens file picker
+                  - Click anywhere opens file picker
+                */}
+                <div
+                  className="nwDropzoneInner nwDropzoneInteractive"
+                  role="button"
+                  tabIndex={0}
+                  aria-describedby={uploadHelpId}
+                  aria-label="Upload document"
+                  onClick={openFilePicker}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openFilePicker();
+                    }
+                  }}
+                >
                   <div className="nwUploadIcon" aria-hidden="true">
                     ↑
                   </div>
 
                   <div className="nwDropzoneText" id={uploadHelpId}>
-                    Drag and drop a file here, or{" "}
+                    Drag and drop a document here, or{" "}
                     <span className="nwBrowseHint">Browse</span>
                   </div>
 
+                  {selectedFiles.length > 0 ? (
+                    <div className="nwDropzoneSubtext" aria-live="polite">
+                      {selectedFiles.length === 1
+                        ? `Selected: ${selectedFiles[0].name}`
+                        : `Selected: ${selectedFiles.length} files`}
+                    </div>
+                  ) : (
+                    <div className="nwDropzoneSubtext">PDF, DOCX, TXT (max depends on browser)</div>
+                  )}
+
+                  {/* Keep the input in the DOM for real file selection, but visually hidden */}
                   <input
+                    ref={fileInputRef}
                     className="nwFileInput"
                     type="file"
-                    aria-describedby={uploadHelpId}
+                    accept=".pdf,.doc,.docx,.txt,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
                     onChange={(e) => handleFiles(e.target.files)}
+                    aria-hidden="true"
+                    tabIndex={-1}
                   />
                 </div>
               </div>
@@ -103,9 +141,7 @@ export default function NewWorkflowPage() {
                       </li>
                     ))}
                     {selectedFiles.length > 3 && (
-                      <li className="nwFileMetaItem">
-                        +{selectedFiles.length - 3} more
-                      </li>
+                      <li className="nwFileMetaItem">+{selectedFiles.length - 3} more</li>
                     )}
                   </ul>
                 </div>
@@ -131,6 +167,7 @@ export default function NewWorkflowPage() {
               onClick={() => {
                 setEnvironment("");
                 setSelectedFiles([]);
+                if (fileInputRef.current) fileInputRef.current.value = "";
               }}
             >
               Cancel

@@ -73,47 +73,78 @@
 .nwDropzoneInner{
   position:relative;
   height: 210px;
-  background: #ffffff;
-  border: 2px solid #111;
-  border-radius: 4px;
+  background: linear-gradient(180deg, rgba(109, 40, 217, 0.06), rgba(109, 40, 217, 0.02));
+  border: 2px dashed rgba(17, 17, 17, 0.55);
+  border-radius: 12px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   gap: 12px;
-  padding: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+/* Makes the dropzone behave like a control (clickable + keyboard focus) */
+.nwDropzoneInteractive{
+  cursor: pointer;
+  user-select: none;
+}
+
+.nwDropzoneInteractive:hover{
+  border-color: rgba(109, 40, 217, 0.6);
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.12);
+  transform: translateY(-1px);
+}
+
+.nwDropzoneInteractive:active{
+  transform: translateY(0px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.10);
 }
 
 .nwUploadIcon{
-  width: 48px;
-  height: 48px;
-  border: 2px solid #111;
-  border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  border: 2px solid rgba(109, 40, 217, 0.55);
+  border-radius: 14px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size: 24px;
-  color: #111;
-  background: #ffffff;
+  color: #2E1065;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .nwDropzoneText{
   text-align:center;
   font-size: 16px;
+  font-weight: 600;
   color: #111;
+}
+
+.nwDropzoneSubtext{
+  text-align:center;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.75);
 }
 
 .nwBrowseHint{
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
+/* Visually hidden but still present in the DOM; opened via ref click */
 .nwFileInput{
   position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  opacity:0;
-  cursor:pointer;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space:nowrap;
+  border:0;
 }
 
 .nwField{
@@ -227,15 +258,11 @@
 }
 
 /* Accessibility focus */
-.nwFileInput:focus-visible + *{
-  outline: none;
-}
-
 .nwBtn:focus-visible,
 .nwSelect:focus-visible,
-.nwFileInput:focus-visible{
-  outline: 3px solid rgba(109, 40, 217, 0.6);
-  outline-offset: 2px;
+.nwDropzoneInteractive:focus-visible{
+  outline: 3px solid rgba(109, 40, 217, 0.65);
+  outline-offset: 3px;
 }
 
 /* Responsive */
