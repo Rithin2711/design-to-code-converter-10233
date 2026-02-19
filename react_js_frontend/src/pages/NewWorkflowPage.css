@@ -23,6 +23,9 @@
   width: 100%;
   max-width: none;
 
+  /* Requirement: remove all padding from the nwCard component styles. */
+  padding: 0;
+
   background: #ffffff; /* white content card area */
   border-radius: 6px;
   border: 2px solid #111;
