@@ -8,7 +8,8 @@ export default defineConfig({
   server: {
     host: true,
     port: 3000,
-    strictPort: true
+    strictPort: true,
+    allowedHosts: ["vscode-internal-21828-beta.beta01.cloud.kavia.ai"]
   },
   preview: {
     host: true,
