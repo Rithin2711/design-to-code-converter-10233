@@ -9,7 +9,10 @@
 }
 
 .nwCard{
-  width: min(920px, 100%);
+  /* Stretch across the available page width (within the page padding). */
+  width: 100%;
+  max-width: none;
+
   background: #ffffff; /* white content card area */
   border-radius: 6px;
   border: 2px solid #111;
