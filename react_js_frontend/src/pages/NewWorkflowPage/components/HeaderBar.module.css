@@ -1,0 +1,28 @@
+.header{
+  height: 48px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* Required by task */
+  background: linear-gradient(135deg, var(--accent-1) 0%, #951d8f 55%, #d9286e 100%);
+}
+
+.title{
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+
+.link{
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.link:hover{
+  text-decoration: underline;
+}

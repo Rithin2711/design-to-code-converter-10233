@@ -1,0 +1,26 @@
+:root{
+  --accent-1: #7b2bbf;
+  --accent-2: #951d8f;
+  --accent-3: #d9286e;
+
+  --bg-page: #fbfbfe;
+  --surface: #ffffff;
+  --border-soft: #ededf3;
+  --border-input: #e6e6ee;
+
+  --text-strong: #2f2f2f;
+  --text-muted: #8b8b97;
+  --text-body: #5b5b66;
+}
+
+.page{
+  min-height: 100vh;
+  background: var(--bg-page);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.main{
+  max-width: 980px;
+  margin: 18px auto 0;
+  padding: 0 24px 28px;
+}

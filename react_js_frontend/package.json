@@ -1,0 +1,14 @@
+{
+  "name": "react-js-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Frontend UI for design-to-code converter",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "start": "webpack serve --mode development --open --hot",
+    "build": "webpack --mode production"
+  }
+}
