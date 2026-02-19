@@ -1,7 +1,7 @@
 .nwPage{
   min-height: 100vh;
   display:flex;
-  align-items:flex-start;
+  align-items:stretch;
   justify-content:center;
 
   /*
@@ -15,7 +15,8 @@
   padding-bottom: 0;
   padding-left: 0;
 
-  background: #000000; /* black stage like the Figma canvas */
+  /* Use the app background, not black, so empty viewport never shows as black. */
+  background: var(--app-bg);
   font-family: "Oswald", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
@@ -23,6 +24,9 @@
   /* Stretch across the available page width (within the page padding). */
   width: 100%;
   max-width: none;
+
+  /* Fill remaining viewport height so there isn't empty space below the card. */
+  min-height: 100vh;
 
   /* Align the card flush to the top so there's no "black bar" above it. */
   margin-top: 0;

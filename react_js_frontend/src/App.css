@@ -1,5 +1,9 @@
 :root{
-  --app-bg: #000000;
+  /*
+    Use a light app background so the "viewport below the card" never appears black.
+    The card itself is still white; the header remains violet.
+  */
+  --app-bg: #f9fafb;
 
   /*
     PageHeader (and other shared UI) accents.
