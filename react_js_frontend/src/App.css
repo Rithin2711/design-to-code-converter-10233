@@ -1,5 +1,10 @@
 :root{
   --app-bg: #000000;
+
+  /* Accent colors used by shared UI components (e.g., PageHeader gradient). */
+  --accent-1: #2563EB; /* blue */
+  --accent-2: #3B82F6; /* lighter blue */
+  --accent-3: #F59E0B; /* amber */
 }
 
 .App{

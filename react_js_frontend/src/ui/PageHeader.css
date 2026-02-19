@@ -1,6 +1,10 @@
 .pageHeader{
-  /* Violet per requirement */
-  background: #6d28d9; /* violet-700-ish */
+  background: linear-gradient(
+    135deg,
+    var(--accent-1) 0%,
+    var(--accent-2) 50%,
+    var(--accent-3) 100%
+  );
   color: #ffffff;
   border-radius: 6px 6px 0 0;
 }
