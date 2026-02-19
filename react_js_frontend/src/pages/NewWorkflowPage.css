@@ -1,15 +1,16 @@
 .nwPage{
   min-height: 100vh;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
 
   /*
-    Provide a top offset so the sticky header never visually overlaps
-    the topmost content when the viewport scrolls.
-    (Matches header inner padding + text height; keeps layout stable.)
+    The PageHeader is rendered inside the card, so adding a page-level top padding
+    creates a visible black "bar" above the card.
+    Keep the layout behavior the same otherwise, but remove top spacing so the
+    nwCard starts at the very top of the page.
   */
-  padding-top: 56px;
+  padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
@@ -22,6 +23,9 @@
   /* Stretch across the available page width (within the page padding). */
   width: 100%;
   max-width: none;
+
+  /* Align the card flush to the top so there's no "black bar" above it. */
+  margin-top: 0;
 
   /* Requirement: remove all padding from the nwCard component styles. */
   padding: 0;
