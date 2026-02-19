@@ -5,10 +5,10 @@
   justify-content:center;
 
   /*
-    Remove left/right padding so the card can touch the viewport edges.
-    Keep vertical padding for stable visual spacing and avoid "sticking" to the top/bottom.
+    Remove padding so the card can touch the viewport edges on all sides.
+    Layout remains stable because centering is handled by flex layout.
   */
-  padding: 24px 0;
+  padding: 0;
 
   background: #000000; /* black stage like the Figma canvas */
   font-family: "Oswald", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
