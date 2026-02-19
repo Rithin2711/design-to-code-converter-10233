@@ -1,10 +1,19 @@
 :root{
   --app-bg: #000000;
 
+  /*
+    PageHeader (and other shared UI) accents.
+    Requirement: header should be dark violet. We keep the existing --accent-* contract
+    (used by PageHeader gradient), but switch the palette to violet tones.
+  */
+  --violet-900: #2E1065; /* deep/dark violet */
+  --violet-800: #4C1D95; /* dark violet */
+  --violet-700: #6D28D9; /* vivid violet highlight */
+
   /* Accent colors used by shared UI components (e.g., PageHeader gradient). */
-  --accent-1: #2563EB; /* blue */
-  --accent-2: #3B82F6; /* lighter blue */
-  --accent-3: #F59E0B; /* amber */
+  --accent-1: var(--violet-900);
+  --accent-2: var(--violet-800);
+  --accent-3: var(--violet-700);
 }
 
 .App{
