@@ -220,6 +220,15 @@
 }
 
 .nwModuleItem{
+  /* Rendered as a <button>; reset default button styles while preserving design */
+  appearance: none;
+  -webkit-appearance: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
   border: 1px solid #111;
   border-radius: 4px;
   padding: 10px 8px;
@@ -227,6 +236,28 @@
   background:#ffffff;
   color:#111;
   font-size: 16px;
+  font-family: inherit;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.nwModuleItem:hover{
+  background: rgba(109, 40, 217, 0.06);
+  box-shadow: 0 8px 18px rgba(17, 24, 39, 0.10);
+  transform: translateY(-1px);
+}
+
+.nwModuleItem:active{
+  transform: translateY(0px);
+  box-shadow: 0 6px 14px rgba(17, 24, 39, 0.08);
+}
+
+.nwModuleItem:focus-visible{
+  outline: 3px solid rgba(109, 40, 217, 0.65);
+  outline-offset: 3px;
 }
 
 .nwActions{

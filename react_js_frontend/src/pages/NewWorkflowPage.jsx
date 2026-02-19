@@ -150,12 +150,25 @@ export default function NewWorkflowPage() {
 
             {/* Right column: module panel */}
             <aside className="nwModulePanel" aria-label="Module list">
-              <div className="nwModuleGrid">
-                {Array.from({ length: 6 }).map((_, idx) => (
-                  <div key={idx} className="nwModuleItem">
-                    Module
-                  </div>
-                ))}
+              <div className="nwModuleGrid" role="group" aria-label="Modules">
+                {Array.from({ length: 6 }).map((_, idx) => {
+                  const label = `Module ${idx + 1}`;
+                  return (
+                    <button
+                      key={label}
+                      type="button"
+                      className="nwModuleItem"
+                      aria-label={label}
+                      onClick={() => {
+                        // Keep behavior minimal; no backend requested.
+                        // eslint-disable-next-line no-console
+                        console.log("Module clicked:", label);
+                      }}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
               </div>
             </aside>
           </section>
