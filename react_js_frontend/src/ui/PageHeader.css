@@ -1,5 +1,18 @@
 .pageHeader{
-  /* Fallback color (and also helps when printing / gradients disabled) */
+  /* Make the header stick to the top of the scrolling viewport */
+  position: sticky;
+  top: 0;
+
+  /*
+    Keep the header above the page content while scrolling.
+    (Avoid huge values, but ensure it's above cards/sections.)
+  */
+  z-index: 10;
+
+  /*
+    When sticky, some browsers can show content "bleeding" behind without an
+    opaque background. We keep the solid fallback + gradient as authoritative.
+  */
   background-color: var(--accent-2);
 
   /* Dark violet header as requested */
@@ -11,6 +24,12 @@
   );
 
   color: #ffffff;
+
+  /*
+    Preserve the existing rounded look.
+    Note: sticky + overflow hidden on the parent is OK here because the parent
+    doesn't scroll; the viewport scrolls.
+  */
   border-radius: 6px 6px 0 0;
 }
 

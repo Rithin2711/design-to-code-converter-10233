@@ -5,10 +5,14 @@
   justify-content:center;
 
   /*
-    Remove padding so the card can touch the viewport edges on all sides.
-    Layout remains stable because centering is handled by flex layout.
+    Provide a top offset so the sticky header never visually overlaps
+    the topmost content when the viewport scrolls.
+    (Matches header inner padding + text height; keeps layout stable.)
   */
-  padding: 0;
+  padding-top: 56px;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 
   background: #000000; /* black stage like the Figma canvas */
   font-family: "Oswald", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
