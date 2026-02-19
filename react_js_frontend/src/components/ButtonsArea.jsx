@@ -1,12 +1,19 @@
 import React, { useMemo } from "react";
 
+import icon1 from "../assets/module-icons/module-1.svg";
+import icon2 from "../assets/module-icons/module-2.svg";
+import icon3 from "../assets/module-icons/module-3.svg";
+import icon4 from "../assets/module-icons/module-4.svg";
+import icon5 from "../assets/module-icons/module-5.svg";
+import icon6 from "../assets/module-icons/module-6.svg";
+
 const MODULES = [
-  { id: "m1", label: "Module", color: "#2563EB", glyph: "1" },
-  { id: "m2", label: "Module", color: "#7C3AED", glyph: "2" },
-  { id: "m3", label: "Module", color: "#16A34A", glyph: "3" },
-  { id: "m4", label: "Module", color: "#F97316", glyph: "4" },
-  { id: "m5", label: "Module", color: "#DB2777", glyph: "5" },
-  { id: "m6", label: "Module", color: "#EAB308", glyph: "6" }
+  { id: "m1", label: "Module", iconSrc: icon1 },
+  { id: "m2", label: "Module", iconSrc: icon2 },
+  { id: "m3", label: "Module", iconSrc: icon3 },
+  { id: "m4", label: "Module", iconSrc: icon4 },
+  { id: "m5", label: "Module", iconSrc: icon5 },
+  { id: "m6", label: "Module", iconSrc: icon6 }
 ];
 
 // PUBLIC_INTERFACE
@@ -33,10 +40,10 @@ export default function ButtonsArea({ selected, onSelect }) {
                   : undefined
               }}
             >
-              <span className="dot" style={{ background: m.color }}>
-                {m.glyph}
+              <span className="moduleBtnInner">
+                <img className="moduleIcon" src={m.iconSrc} alt="" aria-hidden="true" />
+                <span className="moduleLabel">{m.label}</span>
               </span>
-              <span>{m.label}</span>
             </button>
           );
         })}
