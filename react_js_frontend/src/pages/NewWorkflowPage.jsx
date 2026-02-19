@@ -31,7 +31,7 @@ export default function NewWorkflowPage() {
     <div className="nwPage" aria-label="New Workflow screen">
       <div className="nwCard">
         {/* Page header must be violet per instructions */}
-        <PageHeader leftTitle="New Workflow" rightTitle="Dashboard" />
+        <PageHeader leftTitle="ToolX" rightTitle="Dashboard" />
 
         <div className="nwDivider" aria-hidden="true" />
 
